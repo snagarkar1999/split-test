@@ -1,20 +1,25 @@
-//alert("Hello");
+var user = Math.floor((Math.random() * 100) + 1);
 
-var SplitFactory = require('@splitsoftware/splitio').SplitFactory;
-// Instantiate the SDK
-var factory = SplitFactory({
+var factory = splitio({
     core: {
         authorizationKey: 'a3bnr8kp4b9n2clrnprh26nidgltsgolsim6',
-        // the key can be the logged in
-        // user id, or the account id that
-        // the logged in user belongs to.
-        // The type of customer (user, account, custom)
-        // is chosen during Split's sign-up process.
-        key: 'user_id'
-    },
-    startup: {
-        readyTimeout: 1.5 // 1.5 sec
+        key: user // unique identifier for your user
     }
 });
-// And get the client instance you'll use
+//alert("initalize split");
+
 var client = factory.client();
+
+client.on(client.Event.SDK_READY, function() {
+    var treatment = client.getTreatment('Intern_test_split');
+   // alert("recieved sdk ready");
+    alert(user);
+    if (treatment === 'on') {
+        alert("Hello World Savni");
+    }   else   if (treatment === 'off') {
+        alert("Hello World Intern");
+    }   else {
+        alert("Hello World");
+    }
+
+});
