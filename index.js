@@ -13,11 +13,12 @@ var client = factory.client();
 client.on(client.Event.SDK_READY, function() {
     var treatment = client.getTreatment('Intern_test_split');
    // alert("recieved sdk ready");
-    alert(user);
+   // alert(user);
     if (treatment === 'on') {
-        alert("Hello World Savni");
+        document.getElementById("treatment_here").innerHTML = "Hello World Savni";
     }   else   if (treatment === 'off') {
-        alert("Hello World Intern");
+       // alert("Hello World Intern");
+        document.getElementById("treatment_here").innerHTML = "Hello World Intern";
     }   else {
         alert("Hello World");
     }

@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdn.split.io/rum-agent/rum-agent-0.2.1.min.js"></script>
+    <script>
+        window.SPLIT_RUM.init('a3bnr8kp4b9n2clrnprh26nidgltsgolsim6')
+            .identities([
+                { key: 'key', trafficType: 'User' }
+            ]);
+    </script>
     <script src="//cdn.split.io/sdk/split-10.12.1.min.js"></script>
     <script src = "index.js"></script>
     <title>Split Test</title>
 </head>
 <body>
-    <p>Hello World</p>
+    <p id="treatment_here"></p>
 </body>
 </html>
